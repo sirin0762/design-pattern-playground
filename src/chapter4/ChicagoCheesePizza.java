@@ -2,12 +2,19 @@ package chapter4;
 
 public class ChicagoCheesePizza extends Pizza {
 
-    public ChicagoCheesePizza() {
-        name = "Chicago style Deep Dish Cheese Pizza";
-        dough = "Extra Thick Crust Dough";
-        sauce = "Plum Tomato Sauce";
+    private final PizzaIngredientFactory pizzaIngredientFactory;
 
-        toppings.add("Shredded Mozzarella Cheese");
+    public ChicagoCheesePizza(PizzaIngredientFactory pizzaIngredientFactory) {
+        this.pizzaIngredientFactory = pizzaIngredientFactory;
+        name = "Chicago style Deep Dish Cheese Pizza";
+
+    }
+    @Override
+    void prepare() {
+        System.out.println("Preparing ... " + name);
+        dough = pizzaIngredientFactory.createDough();
+        sauce = pizzaIngredientFactory.createSauce();
+        cheese = pizzaIngredientFactory.createCheese();
     }
 
     @Override
