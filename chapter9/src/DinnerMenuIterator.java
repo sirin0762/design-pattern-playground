@@ -1,3 +1,4 @@
+
 public class DinnerMenuIterator implements Iterator{
 
     MenuItem[] items;
@@ -13,7 +14,7 @@ public class DinnerMenuIterator implements Iterator{
     }
 
     @Override
-    public Object next() {
+    public MenuItem next() {
         MenuItem menuItem = items[position];
         position++;
         return menuItem;
