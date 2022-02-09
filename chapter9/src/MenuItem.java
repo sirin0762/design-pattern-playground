@@ -1,3 +1,5 @@
+import java.util.Iterator;
+
 public class MenuItem extends MenuComponent {
     String name;
     String description;
@@ -29,6 +31,11 @@ public class MenuItem extends MenuComponent {
     @Override
     public double getPrice() {
         return price;
+    }
+
+    @Override
+    public Iterator<MenuComponent> createIterator() {
+        return new NullIterator();
     }
 
     @Override
